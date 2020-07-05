@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      User
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">User Info</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item *ngIf="!this.loggingService.loggedIn">
+    <ion-label>Username:</ion-label>
+    <ion-input type=text [(ngModel)]="username" aria-placeholder="Username"></ion-input>    
+  </ion-item>
+
+  <ion-item *ngIf="!this.loggingService.loggedIn">
+    <ion-label>Password:</ion-label>
+    <ion-input type=password [(ngModel)]="password" aria-placeholder="Password"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!this.loggingService.loggedIn">
+    <ion-label color="tertiary">Select This To Register A New Account</ion-label>
+    <ion-checkbox color="tertiary" [(ngModel)]="register"></ion-checkbox>
+  </ion-item>
+
+  <ion-item *ngIf="!this.loggingService.loggedIn">
+    <ion-button color="primary" (click)="logIn(username, password)">Login</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="this.loggingService.loggedIn">
+    <ion-text color="primary">Welcome, {{username}}</ion-text>
+  </ion-item>
+
+  <ion-item *ngIf="this.loggingService.loggedIn">
+    <ion-button color="primary" (click)="logOut()">Log Out</ion-button>
+  </ion-item>
+
+
+
+</ion-content>

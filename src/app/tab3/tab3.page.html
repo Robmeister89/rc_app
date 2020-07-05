@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My To-Do Lists
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 3</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let item of listItems">
+      <ion-label color="tertiary">{{item}}</ion-label>
+      <ion-checkbox color="tertiary" ></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <br/>
+  <ion-list>
+    <ion-item *ngFor="let item of listItems">
+      <ion-text color="primary" (click)="getList(item)" [(ngModel)]="listTitle" >
+        {{item}}
+      </ion-text>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
